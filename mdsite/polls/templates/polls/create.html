@@ -1,0 +1,14 @@
+{% extends 'polls/detail.html' %}
+
+{% block content %}
+<div class="features">
+<form method="post">
+	{% csrf_token %}
+	{{ form.question_text }}<br>
+	{{ form.summary }}<br>
+	{{ form.pub_date }}<br>
+	<span>{{ error }}</span>
+	<button type="submit" class="btn btn-warning">Add question</button>
+</form>
+</div>
+{% endblock %}

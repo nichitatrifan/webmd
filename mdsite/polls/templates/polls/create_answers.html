@@ -1,0 +1,14 @@
+{% extends 'polls/detail.html' %}
+
+{% block content %}
+<div class="features">
+Create answers here:<br>
+<form method="post">
+	{% csrf_token %}
+	{{ form.question }}<br>
+	{{ form.choice_text }}<br>
+	<span>{{ error }}</span>
+	<button type="submit" class="btn btn-success">Add answer</button>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'polls/detail.html' %}
+
+{% block content %}
+<div class="features">
+    Congrats!<br>
+    You have successfully logged out!<br>
+    <a href="{% url 'accounts:login' %}">Log in again?</a>
+</div>
+
+{% endblock %}

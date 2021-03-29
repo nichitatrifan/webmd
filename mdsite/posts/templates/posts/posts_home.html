@@ -1,0 +1,23 @@
+{% extends 'polls/detail.html' %}
+
+{% block content %}
+<div class="features">
+	<h1>Posts on our Website</h1>
+	{% if posts %}
+		{% for post in posts %}
+		<div class = "alert alert-warning">
+			{{post.title}}<br>
+			{{post.anons}}<br>
+			{{post.full_text}}<br>
+			{{post.date}}<br>
+			<a href="{% url 'posts:post_details' post.id %}" class="btn btn-warning">Details</a>
+		</div>
+		{% endfor %}
+	{% else %}
+		<p>No posts yet!</p>
+	{% endif %}
+
+</body>
+{# Комментарии кода #}
+</div>
+{% endblock %}

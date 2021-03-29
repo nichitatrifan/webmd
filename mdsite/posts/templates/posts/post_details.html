@@ -1,0 +1,13 @@
+{% extends 'polls/detail.html' %}
+
+{% block content %}
+<div class="features">
+	<h1>{{post.title}}</h1>
+	<p>{{post.author}}</p>
+	<p>{{post.date}}</p>
+	<p>{{post.full_text}}</p>
+{# Комментарии кода #}
+	<a href="{% url 'posts:post_delete' post.id %}" class="btn btn-danger">Delete</a>
+	<a href="{% url 'posts:post_update' post.id %}" class="btn btn-info">Update</a>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'polls/detail.html' %}
+
+{% block content %}
+{# action = 'posts:create_post' #}
+<div class = "features">
+	<h1>Delete the post</h1>
+<form method="post">
+	{% csrf_token %}
+	<button class="btn btn-success" type="submit">Delete Post</button>
+</form>
+</div>
+{% endblock %}
