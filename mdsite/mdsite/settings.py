@@ -64,7 +64,7 @@ ROOT_URLCONF = 'mdsite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -153,5 +153,6 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SITE_ID = 4
 # Перенаправляет зарегоннавого пользователя
-LOGIN_REDIRECT_URL = 'polls:index'
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL='/'

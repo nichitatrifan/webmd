@@ -16,21 +16,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView, TemplateView
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LogoutView, LoginView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url
 
+app_name = 'mdsite'
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
 urlpatterns+= [
-    path('',TemplateView.as_view(template_name = "oauth_app/index.html"), name="login"),
+    path('',TemplateView.as_view(template_name = "index.html"), name="login"),
 	path('polls/', include('polls.urls')),
 	path('posts/', include('posts.urls')),
     path('accounts/', include('allauth.urls')),
-    path('logout', LogoutView.as_view(), name="logout"),
+    path('logout', LogoutView.as_view(template_name = "logout.html"), name="logout"),
+    path('login', LoginView.as_view(template_name = "index.html"), name = "account_login"),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
